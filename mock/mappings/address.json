@@ -1,0 +1,17 @@
+{
+    "request": {
+        "method": "GET",
+        "url": "/addresses/02442090"
+    },
+    "response": {
+        "status": 200,
+        "headers": {
+            "Content-Type": "application/json"
+        },
+        "jsonBody": {
+            "street": "avenida coronel manuel py",
+            "city": "São Paulo",
+            "state": "São Paulo"
+        }
+    }
+}

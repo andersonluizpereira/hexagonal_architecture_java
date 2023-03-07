@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 public class CustomerMessage {
     private String id;
     private String name;
+    private String zipCode;
     private Address address;
     private String cpf;
     private Boolean isValidCpf;

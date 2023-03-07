@@ -7,10 +7,11 @@ import com.pereira.hexagonal.application.ports.in.DeleteCustomerByIdInputPort;
 import com.pereira.hexagonal.application.ports.in.FindCustomerByIdInputPort;
 import com.pereira.hexagonal.application.ports.in.InsertCustomerInputPort;
 import com.pereira.hexagonal.application.ports.in.UpdateCustomerInputPort;
-import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/api/v1/customers")

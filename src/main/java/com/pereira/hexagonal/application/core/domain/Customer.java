@@ -1,11 +1,6 @@
 package com.pereira.hexagonal.application.core.domain;
 
 public class Customer {
-    private String id;
-    private String name;
-    private Address address;
-    private String cpf;
-    private Boolean isValidCpf;
 
     public Customer() {
         this.isValidCpf = false;
@@ -18,6 +13,16 @@ public class Customer {
         this.cpf = cpf;
         this.isValidCpf = isValidCpf;
     }
+
+    private String id;
+
+    private String name;
+
+    private Address address;
+
+    private String cpf;
+
+    private Boolean isValidCpf;
 
     public String getId() {
         return id;
@@ -51,11 +56,12 @@ public class Customer {
         this.cpf = cpf;
     }
 
-    public Boolean getValidCpf() {
+    public Boolean getIsValidCpf() {
         return isValidCpf;
     }
 
-    public void setValidCpf(Boolean validCpf) {
-        isValidCpf = validCpf;
+    public void setIsValidCpf(Boolean isValidCpf) {
+        this.isValidCpf = isValidCpf;
     }
+
 }
