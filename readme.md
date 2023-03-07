@@ -49,6 +49,20 @@ cluster: kafka-cluster-hexagonal
 docker exec -it kafka-cluster-hexagonal_kafka_1 kafka-console-consumer --bootstrap-server localhost:9092 --topic cep --from-beginning
 Abra o offsetExplorer e verifique a mensagem
 
+**Rodando o projeto**
+gradle bootRun
+
+CURL
+
+```curl --location --request POST 'http://localhost:8081/api/v1/customers' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+"name":"Anderson",
+"zipCode":"02442090",
+"cpf":"11111111111"
+}'
+```
+
 
 
 	

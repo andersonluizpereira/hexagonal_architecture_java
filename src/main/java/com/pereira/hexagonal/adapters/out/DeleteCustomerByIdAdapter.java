@@ -1,12 +1,13 @@
 package com.pereira.hexagonal.adapters.out;
 
 import com.pereira.hexagonal.adapters.out.repository.CustomerRepository;
-import com.pereira.hexagonal.application.ports.out.DeleteCustomerByIdOutPutPort;
+import com.pereira.hexagonal.application.ports.out.DeleteCustomerByIdOutputPort;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
-public class DeleteCustomerByIdAdapter implements DeleteCustomerByIdOutPutPort {
+public class DeleteCustomerByIdAdapter implements DeleteCustomerByIdOutputPort {
+
     @Autowired
     private CustomerRepository customerRepository;
 
@@ -14,4 +15,5 @@ public class DeleteCustomerByIdAdapter implements DeleteCustomerByIdOutPutPort {
     public void delete(String id) {
         customerRepository.deleteById(id);
     }
+
 }

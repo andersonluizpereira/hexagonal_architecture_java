@@ -2,22 +2,26 @@ package com.pereira.hexagonal.application.core.usecase;
 
 import com.pereira.hexagonal.application.ports.in.DeleteCustomerByIdInputPort;
 import com.pereira.hexagonal.application.ports.in.FindCustomerByIdInputPort;
-import com.pereira.hexagonal.application.ports.out.DeleteCustomerByIdOutPutPort;
+import com.pereira.hexagonal.application.ports.out.DeleteCustomerByIdOutputPort;
 
 public class DeleteCustomerByIdUseCase implements DeleteCustomerByIdInputPort {
 
-    private final DeleteCustomerByIdOutPutPort deleteCustomerByIdOutPutPort;
     private final FindCustomerByIdInputPort findCustomerByIdInputPort;
 
+    private final DeleteCustomerByIdOutputPort deleteCustomerByIdOutputPort;
 
-    public DeleteCustomerByIdUseCase(DeleteCustomerByIdOutPutPort deleteCustomerByIdOutPutPort, FindCustomerByIdInputPort findCustomerByIdInputPort) {
-        this.deleteCustomerByIdOutPutPort = deleteCustomerByIdOutPutPort;
+    public DeleteCustomerByIdUseCase(
+            FindCustomerByIdInputPort findCustomerByIdInputPort,
+            DeleteCustomerByIdOutputPort deleteCustomerByIdOutputPort
+    ) {
         this.findCustomerByIdInputPort = findCustomerByIdInputPort;
+        this.deleteCustomerByIdOutputPort = deleteCustomerByIdOutputPort;
     }
 
     @Override
-    public void delete(String id) {
+    public void delete(final String id) {
         findCustomerByIdInputPort.find(id);
-        deleteCustomerByIdOutPutPort.delete(id);
+        deleteCustomerByIdOutputPort.delete(id);
     }
+
 }

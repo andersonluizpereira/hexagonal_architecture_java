@@ -5,7 +5,9 @@ import com.pereira.hexagonal.adapters.out.repository.mapper.CustomerEntityMapper
 import com.pereira.hexagonal.application.core.domain.Customer;
 import com.pereira.hexagonal.application.ports.out.UpdateCustomerOutputPort;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
 public class UpdateCustomerAdapter implements UpdateCustomerOutputPort {
 
     @Autowired
@@ -19,4 +21,5 @@ public class UpdateCustomerAdapter implements UpdateCustomerOutputPort {
         var customerEntity = customerEntityMapper.toCustomerEntity(customer);
         customerRepository.save(customerEntity);
     }
+
 }

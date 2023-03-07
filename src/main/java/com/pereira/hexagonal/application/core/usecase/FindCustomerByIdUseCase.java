@@ -2,19 +2,20 @@ package com.pereira.hexagonal.application.core.usecase;
 
 import com.pereira.hexagonal.application.core.domain.Customer;
 import com.pereira.hexagonal.application.ports.in.FindCustomerByIdInputPort;
-import com.pereira.hexagonal.application.ports.out.FindCustomerByIdOutPutPort;
+import com.pereira.hexagonal.application.ports.out.FindCustomerByIdOutputPort;
 
 public class FindCustomerByIdUseCase implements FindCustomerByIdInputPort {
 
-    private final FindCustomerByIdOutPutPort findCustomerByIdOutPutPort;
+    private final FindCustomerByIdOutputPort findCustomerByIdOutputPort;
 
-    public FindCustomerByIdUseCase(FindCustomerByIdOutPutPort findCustomerByIdOutPutPort) {
-        this.findCustomerByIdOutPutPort = findCustomerByIdOutPutPort;
+    public FindCustomerByIdUseCase(FindCustomerByIdOutputPort findCustomerByIdOutputPort) {
+        this.findCustomerByIdOutputPort = findCustomerByIdOutputPort;
     }
 
     @Override
     public Customer find(String id) {
-        return findCustomerByIdOutPutPort.find(id)
-                .orElseThrow(() -> new RuntimeException("Customer not found."));
+        return findCustomerByIdOutputPort.find(id)
+                .orElseThrow(() -> new RuntimeException("Customer not found"));
     }
+
 }

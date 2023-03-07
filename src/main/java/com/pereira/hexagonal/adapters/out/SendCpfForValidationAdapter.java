@@ -6,7 +6,7 @@ import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Component;
 
 @Component
-public class SendCpfValidationAdapter implements SendCpfForValidationOutputPort {
+public class SendCpfForValidationAdapter implements SendCpfForValidationOutputPort {
 
     @Autowired
     private KafkaTemplate<String, String> kafkaTemplate;
@@ -15,4 +15,5 @@ public class SendCpfValidationAdapter implements SendCpfForValidationOutputPort 
     public void send(String cpf) {
         kafkaTemplate.send("tp-cpf-validation", cpf);
     }
+
 }

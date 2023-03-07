@@ -8,7 +8,7 @@ import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
 
 @Component
-public class ReceivedValidatedCpfConsumer {
+public class ReceiveValidatedCpfConsumer {
 
     @Autowired
     private UpdateCustomerInputPort updateCustomerInputPort;
@@ -16,10 +16,10 @@ public class ReceivedValidatedCpfConsumer {
     @Autowired
     private CustomerMessageMapper customerMessageMapper;
 
-
-    @KafkaListener(topics = "tp-cpf-validated", groupId = "pereria")
+    @KafkaListener(topics = "tp-cpf-validated", groupId = "pereira")
     public void receive(CustomerMessage customerMessage) {
         var customer = customerMessageMapper.toCustomer(customerMessage);
         updateCustomerInputPort.update(customer, customerMessage.getZipCode());
     }
+
 }
