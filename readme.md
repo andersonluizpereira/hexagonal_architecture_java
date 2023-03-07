@@ -53,6 +53,11 @@ Abra o offsetExplorer e verifique a mensagem
 gradle bootRun
 
 CURL
+Abra o mongoshell
+docker exec -it mongodb-cluster-hexagonal_mongo_1 mongo -u root -p root
+mongosh -u root -p root -p "example"
+use hexagonal
+db.customers.find()
 
 ```curl --location --request POST 'http://localhost:8081/api/v1/customers' \
 --header 'Content-Type: application/json' \
@@ -62,7 +67,30 @@ CURL
 "cpf":"11111111111"
 }'
 ```
-
-
-
-	
+GET
+```
+curl --location --request GET 'http://localhost:8081/api/v1/customers/6406a151db417f7d84e7af25'
+```
+PUT
+```
+curl --location --request PUT 'http://localhost:8081/api/v1/customers/6406a151db417f7d84e7af25' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "name":"Anderson Luiz Pereira",
+    "zipCode":"08502000",
+    "cpf":"32282166833"
+}'
+```
+DELETE
+```
+curl --location --request DELETE 'http://localhost:8081/api/v1/customers/6406a151db417f7d84e7af25'
+```
+ENVIANDO Para o Kafka
+```
+{
+    "name":"Anderson",
+    "zipCode":"02442090",
+    "cpf":"11111111111",
+    "isValidCpf":"true"		
+}
+```
